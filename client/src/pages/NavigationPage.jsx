@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { navigateAI, getLiveCrowd } from '../services/api';
@@ -54,7 +54,7 @@ export default function NavigationPage() {
     recognition.start();
   };
 
-  const chips = [
+  const chips = useMemo(() => [
     { label: t('chipGateC'), icon: '🚪' },
     { label: t('chipFood'), icon: '🍔' },
     { label: t('chipAccess'), icon: '♿' },
@@ -62,14 +62,14 @@ export default function NavigationPage() {
     { label: t('chipAid'), icon: '🏥' },
     { label: t('chipSensory'), icon: '🧘' },
     { label: t('chipParking'), icon: '🅿️' },
-  ];
+  ], [language]);
 
-  const faqs = [
+  const faqs = useMemo(() => [
     { q: t('faqGateCQ'), a: t('faqGateCA') },
     { q: t('faqRestroomQ'), a: t('faqRestroomA') },
     { q: t('faqAccessQ'), a: t('faqAccessA') },
     { q: t('faqFoodQ'), a: t('faqFoodA') },
-  ];
+  ], [language]);
 
   return (
     <PageTransition>

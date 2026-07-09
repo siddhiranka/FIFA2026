@@ -53,9 +53,10 @@ const callGemini = async (prompt, language = 'en', retries = 2) => {
       return result.response.text();
     } catch (err) {
       if (timeoutId) clearTimeout(timeoutId);
-      console.error(`[aiService] callGemini attempt=${attempt} failed:`, err);
       if (attempt === retries) throw err;
-      await new Promise(r => setTimeout(r, 1000 * (attempt + 1)));
+      if (process.env.NODE_ENV !== 'test') {
+        await new Promise(r => setTimeout(r, 1000 * (attempt + 1)));
+      }
     }
   }
 };

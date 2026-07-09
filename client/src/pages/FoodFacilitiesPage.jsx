@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import PageTransition from '../components/PageTransition';
 import { Search, MapPin, Star, Clock, Heart, Coffee, ShieldAlert, Award } from 'lucide-react';
+import { useDebounce } from '../hooks/useDebounce';
 
 export default function FoodFacilitiesPage() {
   const { language, t } = useLanguage();
@@ -92,7 +93,9 @@ export default function FoodFacilitiesPage() {
 
   const l = dict[language] || dict.en;
 
-  const concessions = [
+  const debouncedSearch = useDebounce(search, 200);
+
+  const concessions = useMemo(() => [
     {
       name: language === 'es' ? 'Patio de Comidas Fan FIFA' : language === 'pt' ? 'Praça de Alimentação Fan FIFA' : 'FIFA Fan Food Court',
       distance: '120m',
@@ -159,9 +162,9 @@ export default function FoodFacilitiesPage() {
       gate: 'F',
       calories: 'Low'
     },
-  ];
+  ], [language]);
 
-  const facilities = [
+  const facilities = useMemo(() => [
     {
       name: language === 'es' ? 'Banco de Ascensores Norte' : language === 'pt' ? 'Banco de Elevadores Norte' : 'North Elevator Bank',
       location: language === 'es' ? 'Puerta A – Corredor E' : language === 'pt' ? 'Portão A – Corredor E' : 'Gate A – E Concourse',
@@ -198,15 +201,17 @@ export default function FoodFacilitiesPage() {
       type: 'medical',
       desc: language === 'es' ? 'Apoyo médico de la Cruz Roja las 24 horas y desfibriladores.' : language === 'pt' ? 'Suporte de primeiros socorros 24/7 da Cruz Vermelha.' : '24/7 Red Cross medical support, ambulances, and devices.'
     },
-  ];
+  ], [language]);
 
   // Filtering logic
-  const filteredConcessions = concessions.filter(item => {
-    const matchesSearch = item.name.toLowerCase().includes(search.toLowerCase()) ||
-                          item.items.toLowerCase().includes(search.toLowerCase());
-    const matchesCategory = category === 'all' || item.type === category;
-    return matchesSearch && matchesCategory;
-  });
+  const filteredConcessions = useMemo(() => {
+    return concessions.filter(item => {
+      const matchesSearch = item.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+                            item.items.toLowerCase().includes(debouncedSearch.toLowerCase());
+      const matchesCategory = category === 'all' || item.type === category;
+      return matchesSearch && matchesCategory;
+    });
+  }, [debouncedSearch, category, concessions]);
 
   const getQueueBadge = (q) => {
     if (q === 'Long') return { bg: '#FFF0F1', color: '#E63946', label: l.queueLong };
@@ -221,9 +226,9 @@ export default function FoodFacilitiesPage() {
     return l.caloriesLow;
   };
 
-  const getFilteredByGate = () => {
+  const filteredByGate = useMemo(() => {
     return concessions.filter(c => c.gate === nearestGate);
-  };
+  }, [nearestGate, concessions]);
 
   return (
     <PageTransition>
@@ -300,7 +305,7 @@ export default function FoodFacilitiesPage() {
 
               {/* Gate recommendations results */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16, marginTop: 20 }}>
-                {getFilteredByGate().map(item => {
+                {filteredByGate.map(item => {
                   const badge = getQueueBadge(item.queue);
                   return (
                     <motion.div
