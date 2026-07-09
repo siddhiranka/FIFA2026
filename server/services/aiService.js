@@ -31,7 +31,7 @@ const callGemini = async (prompt, language = 'en', retries = 2) => {
   const ai = initializeAI();
   if (!ai) throw new Error('AI service not available');
 
-  const model = ai.getGenerativeModel({ model: 'gemini-2.5-flash' });
+  const model = ai.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
   const languageName = language === 'es' ? 'Spanish' : language === 'pt' ? 'Portuguese' : 'English';
   
   const finalPrompt = `${SYSTEM_CONTEXT}
