@@ -53,6 +53,7 @@ const callGemini = async (prompt, language = 'en', retries = 2) => {
       return result.response.text();
     } catch (err) {
       if (timeoutId) clearTimeout(timeoutId);
+      console.error(`[aiService] callGemini attempt=${attempt} failed:`, err);
       if (attempt === retries) throw err;
       await new Promise(r => setTimeout(r, 1000 * (attempt + 1)));
     }
@@ -180,7 +181,8 @@ Context: You are helping fans and staff at FIFA World Cup 2026 MetLife Stadium.
 Respond concisely with emojis, bullet points, and clear structure.`;
   try {
     return await callGemini(prompt, language);
-  } catch {
+  } catch (err) {
+    console.error(`[aiService] generalChat failed:`, err);
     return language === 'es' ? '⚽ ¡Estoy aquí para ayudar! Pregúntame sobre accesos, transporte o servicios.' : language === 'pt' ? '⚽ Estou aqui para ajudar! Pergunte-me sobre portões, transporte ou instalações.' : '⚽ I\'m here to help! Ask me about gates, transport, facilities, accessibility, or anything about your matchday experience.';
   }
 };
