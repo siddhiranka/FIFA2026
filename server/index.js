@@ -32,7 +32,14 @@ app.get('/api/health', (req, res) => {
     status: 'ok',
     service: 'StadiumPulse AI API',
     version: '1.0.0',
-    timestamp: new Date()
+    timestamp: new Date(),
+    diagnostics: {
+      geminiApiKeyLoaded: !!process.env.GEMINI_API_KEY,
+      geminiApiKeyStart: process.env.GEMINI_API_KEY ? `${process.env.GEMINI_API_KEY.substring(0, 7)}...` : 'not-found',
+      mongodbUriLoaded: !!process.env.MONGODB_URI,
+      jwtSecretLoaded: !!process.env.JWT_SECRET,
+      nodeEnv: process.env.NODE_ENV || 'not-set'
+    }
   });
 });
 
