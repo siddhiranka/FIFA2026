@@ -1,0 +1,103 @@
+{
+  "options": [
+    {
+      "id": "metro",
+      "type": "Metro",
+      "icon": "🚇",
+      "name": "NJ Transit / PATH Rail",
+      "line": "NJ Transit Meadowlands Line",
+      "departurePt": "Penn Station, NYC",
+      "arrivalPt": "Meadowlands Sports Complex Station",
+      "etaMinutes": 25,
+      "frequency": "Every 15 min on matchday",
+      "crowdLevel": "Medium",
+      "crowdPercent": 58,
+      "carbonFootprint": 0.8,
+      "sustainabilityScore": 9,
+      "cost": "$5.50",
+      "walkingMinutes": 7,
+      "recommendation": "Best option for fans from NYC. Direct service to stadium.",
+      "tips": ["Buy ticket in advance via app", "Board at Penn Station lower level", "Follow FIFA signage at Meadowlands station"]
+    },
+    {
+      "id": "bus",
+      "type": "Bus",
+      "icon": "🚌",
+      "name": "FIFA Shuttle Bus",
+      "departurePt": "Times Square, NYC",
+      "arrivalPt": "Stadium Main Entrance",
+      "etaMinutes": 40,
+      "frequency": "Every 20 min",
+      "crowdLevel": "Low",
+      "crowdPercent": 32,
+      "carbonFootprint": 1.2,
+      "sustainabilityScore": 7,
+      "cost": "$8.00",
+      "walkingMinutes": 2,
+      "recommendation": "Good for groups. Air-conditioned. Drop-off at main gate.",
+      "tips": ["Book online for guaranteed seat", "Pick-up 3 hours before kickoff", "Runs until 2 hours after final whistle"]
+    },
+    {
+      "id": "taxi",
+      "type": "Taxi / Rideshare",
+      "icon": "🚕",
+      "name": "Uber / Lyft",
+      "departurePt": "Your Location",
+      "arrivalPt": "Stadium Rideshare Zone",
+      "etaMinutes": 35,
+      "frequency": "On demand",
+      "crowdLevel": "Variable",
+      "crowdPercent": 45,
+      "carbonFootprint": 4.5,
+      "sustainabilityScore": 3,
+      "cost": "$35–$60",
+      "walkingMinutes": 10,
+      "recommendation": "Convenient but expensive. Surge pricing expected near kickoff.",
+      "tips": ["Schedule pickup 2hrs before kickoff", "Use rideshare zone – not main entrance", "Return pickup will be 1hr wait post-match"]
+    },
+    {
+      "id": "parking",
+      "type": "Parking",
+      "icon": "🅿️",
+      "name": "Stadium Parking Lots",
+      "lots": [
+        { "id": "P1", "name": "Lot P1 (VIP)", "distance": "200m", "available": 45, "total": 500, "accessible": true },
+        { "id": "P2", "name": "Lot P2 (General)", "distance": "400m", "available": 210, "total": 1200, "accessible": false },
+        { "id": "P3", "name": "Lot P3 (Remote)", "distance": "800m", "available": 580, "total": 2000, "accessible": false }
+      ],
+      "etaMinutes": 50,
+      "crowdLevel": "High",
+      "crowdPercent": 78,
+      "carbonFootprint": 6.2,
+      "sustainabilityScore": 2,
+      "cost": "$30–$50",
+      "walkingMinutes": 15,
+      "recommendation": "Arrive 3+ hours early. Lot P3 has most availability. Carpool encouraged.",
+      "tips": ["Pre-purchase parking pass online", "Follow LED signs for open lots", "Exit via Route 3 West to avoid congestion"]
+    },
+    {
+      "id": "walking",
+      "type": "Walking",
+      "icon": "🚶",
+      "name": "Walk from Transit Hub",
+      "departurePt": "Meadowlands Station",
+      "arrivalPt": "Stadium Gate A",
+      "etaMinutes": 7,
+      "crowdLevel": "Low",
+      "crowdPercent": 20,
+      "carbonFootprint": 0,
+      "sustainabilityScore": 10,
+      "cost": "Free",
+      "walkingMinutes": 7,
+      "recommendation": "Greenest option. 7-minute walk from train station on dedicated fan walkway.",
+      "tips": ["Follow the FIFA fan pathway signs", "Accessible route available (8 min via ramp)", "Great views of the stadium approach"]
+    }
+  ],
+  "sustainabilityTips": [
+    "🚇 Taking the metro saves ~5.4kg CO₂ vs driving alone",
+    "🌱 The FIFA shuttle is powered by low-emission vehicles",
+    "🚶 Walking from the station? You're our eco-champion!",
+    "🚗 Carpooling? Split the carbon – share the journey",
+    "♻️ Use refill stations inside the stadium – plastic-free matchday"
+  ]
+}

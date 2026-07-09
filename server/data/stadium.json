@@ -1,0 +1,42 @@
+{
+  "stadium": {
+    "name": "MetLife Stadium",
+    "city": "East Rutherford, NJ",
+    "country": "USA",
+    "capacity": 82500,
+    "timezone": "America/New_York"
+  },
+  "gates": [
+    { "id": "A", "name": "Gate A", "level": "Ground", "section": "North", "accessible": true, "facilities": ["Security Checkpoint", "Ticket Scan", "First Aid"], "coordinates": { "x": 50, "y": 10 } },
+    { "id": "B", "name": "Gate B", "level": "Ground", "section": "East", "accessible": true, "facilities": ["Security Checkpoint", "Ticket Scan", "Restroom"], "coordinates": { "x": 90, "y": 50 } },
+    { "id": "C", "name": "Gate C", "level": "Ground", "section": "South", "accessible": false, "facilities": ["Security Checkpoint", "Ticket Scan"], "coordinates": { "x": 50, "y": 90 } },
+    { "id": "D", "name": "Gate D", "level": "Ground", "section": "West", "accessible": true, "facilities": ["Security Checkpoint", "Ticket Scan", "Wheelchair Access"], "coordinates": { "x": 10, "y": 50 } },
+    { "id": "E", "name": "Gate E", "level": "Upper", "section": "North-East", "accessible": true, "facilities": ["Security Checkpoint", "Elevator"], "coordinates": { "x": 75, "y": 15 } },
+    { "id": "F", "name": "Gate F", "level": "Upper", "section": "South-West", "accessible": true, "facilities": ["Security Checkpoint", "Elevator", "Medical Post"], "coordinates": { "x": 25, "y": 85 } }
+  ],
+  "sections": [
+    { "id": "101", "name": "Section 101", "level": "Lower", "gate": "A", "seats": 1200, "type": "General" },
+    { "id": "102", "name": "Section 102", "level": "Lower", "gate": "A", "seats": 1200, "type": "General" },
+    { "id": "201", "name": "Section 201", "level": "Upper", "gate": "E", "seats": 800, "type": "General" },
+    { "id": "301", "name": "VIP Lounge", "level": "Club", "gate": "B", "seats": 200, "type": "VIP" },
+    { "id": "401", "name": "Accessible Section", "level": "Lower", "gate": "D", "seats": 150, "type": "Accessible" }
+  ],
+  "facilities": [
+    { "id": "f1", "type": "restroom", "name": "Restroom Block 1", "location": "Near Gate A, Level 1", "accessible": true, "coordinates": { "x": 45, "y": 15 } },
+    { "id": "f2", "type": "restroom", "name": "Restroom Block 2", "location": "Near Gate C, Level 1", "accessible": true, "coordinates": { "x": 55, "y": 85 } },
+    { "id": "f3", "type": "food", "name": "Fan Food Court", "location": "Central Concourse", "rating": 4.2, "queue": "Short", "coordinates": { "x": 50, "y": 50 } },
+    { "id": "f4", "type": "food", "name": "Premium Dining", "location": "Club Level", "rating": 4.7, "queue": "None", "coordinates": { "x": 50, "y": 40 } },
+    { "id": "f5", "type": "food", "name": "North Concession Stand", "location": "Near Gate A", "rating": 3.9, "queue": "Medium", "coordinates": { "x": 50, "y": 20 } },
+    { "id": "f6", "type": "medical", "name": "First Aid Center", "location": "Gate D, Ground Level", "accessible": true, "coordinates": { "x": 15, "y": 50 } },
+    { "id": "f7", "type": "elevator", "name": "North Elevator Bank", "location": "Gate A – E", "accessible": true, "coordinates": { "x": 60, "y": 12 } },
+    { "id": "f8", "type": "elevator", "name": "West Elevator Bank", "location": "Gate D", "accessible": true, "coordinates": { "x": 12, "y": 45 } },
+    { "id": "f9", "type": "sensory", "name": "Sensory Room", "location": "Gate F, Upper Level", "accessible": true, "coordinates": { "x": 28, "y": 82 } },
+    { "id": "f10", "type": "prayer", "name": "Prayer Room", "location": "Gate B, Level 2", "coordinates": { "x": 88, "y": 48 } },
+    { "id": "f11", "type": "charging", "name": "Phone Charging Station", "location": "All Gates, Concourse Level", "coordinates": { "x": 50, "y": 60 } },
+    { "id": "f12", "type": "water", "name": "Water Refill Station", "location": "Near Food Court", "coordinates": { "x": 52, "y": 52 } }
+  ],
+  "accessibleRoutes": [
+    { "from": "Main Entrance", "to": "Accessible Section 401", "steps": ["Enter via Gate D (Accessible)", "Take West Elevator to Level 1", "Follow blue accessible pathway", "Section 401 is on your left"] },
+    { "from": "Main Entrance", "to": "Sensory Room", "steps": ["Enter via Gate F (Accessible)", "Take Elevator to Upper Level", "Follow sensory room signage", "Room is open 2hrs before and after match"] }
+  ]
+}

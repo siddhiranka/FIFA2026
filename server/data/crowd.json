@@ -1,0 +1,25 @@
+{
+  "lastUpdated": "2026-07-09T06:00:00Z",
+  "totalCapacity": 82500,
+  "currentOccupancy": 61200,
+  "occupancyPercent": 74,
+  "gates": [
+    { "id": "A", "name": "Gate A", "density": 85, "status": "high", "waitMinutes": 12, "volunteersDeployed": 4, "recommendation": "Use Gate C or D for faster entry" },
+    { "id": "B", "name": "Gate B", "density": 62, "status": "medium", "waitMinutes": 6, "volunteersDeployed": 3, "recommendation": "Moderate wait time" },
+    { "id": "C", "name": "Gate C", "density": 28, "status": "low", "waitMinutes": 2, "volunteersDeployed": 2, "recommendation": "Fast entry available" },
+    { "id": "D", "name": "Gate D", "density": 45, "status": "medium", "waitMinutes": 5, "volunteersDeployed": 3, "recommendation": "Good accessibility option" },
+    { "id": "E", "name": "Gate E", "density": 15, "status": "low", "waitMinutes": 1, "volunteersDeployed": 2, "recommendation": "Quickest entry right now" },
+    { "id": "F", "name": "Gate F", "density": 71, "status": "high", "waitMinutes": 9, "volunteersDeployed": 4, "recommendation": "Use Gate E or C instead" }
+  ],
+  "sections": [
+    { "id": "North Stand", "density": 78 },
+    { "id": "South Stand", "density": 55 },
+    { "id": "East Stand", "density": 82 },
+    { "id": "West Stand", "density": 41 },
+    { "id": "VIP Zone", "density": 60 }
+  ],
+  "alerts": [
+    { "type": "congestion", "location": "Gate A", "message": "High congestion at Gate A. Deploying 2 additional volunteers.", "severity": "high", "timestamp": "2026-07-09T05:45:00Z" },
+    { "type": "incident", "location": "East Concourse", "message": "Minor crowd surge resolved. Area returned to normal.", "severity": "low", "timestamp": "2026-07-09T05:30:00Z" }
+  ]
+}
